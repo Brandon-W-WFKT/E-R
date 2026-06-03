@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E&R Earthworks — SEO Audit Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #F5F6F7;
+    color: #1a2332;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+    color: white;
+    padding: 50px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 250px; height: 250px;
+    background: rgba(231, 76, 60, 0.08);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 30%;
+    width: 180px; height: 180px;
+    background: rgba(231, 76, 60, 0.05);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(231, 76, 60, 0.2);
+    color: #ff6b5b;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+  }
+  .hero h1 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: white;
+  }
+  .hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .info-bar {
+    background: white;
+    border-bottom: 1px solid #e8eaed;
+    padding: 16px 40px;
+  }
+  .info-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .info-item { display: flex; flex-direction: column; gap: 2px; }
+  .info-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #e74c3c;
+  }
+  .info-value { font-size: 14px; font-weight: 500; color: #1a2332; }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* SCORE CARDS */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .score-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #e8eaed;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+  .score-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .score-value {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .score-good { color: #16a34a; }
+  .score-medium { color: #d97706; }
+  .score-bad { color: #dc2626; }
+  .score-note { font-size: 12px; color: #666; }
+
+  /* SECTION */
+  .section {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e8eaed;
+  }
+  .section-header {
+    padding: 18px 24px;
+    border-left: 4px solid #e74c3c;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a2332;
+    flex: 1;
+  }
+  .section-header .page-url {
+    font-size: 12px;
+    color: #999;
+    font-weight: 400;
+  }
+
+  .badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-critical { background: #fee2e2; color: #991b1b; }
+  .badge-high { background: #fef3c7; color: #92400e; }
+  .badge-medium { background: #dbeafe; color: #1e40af; }
+  .badge-good { background: #dcfce7; color: #166534; }
+
+  .section-body {
+    padding: 20px 24px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .rec {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .rec:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+  .rec-type {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #e74c3c;
+    margin-bottom: 5px;
+  }
+  .rec h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a2332;
+    margin-bottom: 6px;
+  }
+  .rec p { font-size: 13px; color: #555; margin-bottom: 8px; line-height: 1.6; }
+
+  .paste-box {
+    background: #f8f9fa;
+    border: 1px solid #e8eaed;
+    border-left: 3px solid #e74c3c;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-top: 8px;
+  }
+  .paste-box strong {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #e74c3c;
+    margin-bottom: 6px;
+  }
+  .paste-box-content {
+    font-size: 13px;
+    color: #1a2332;
+    line-height: 1.6;
+  }
+
+  .action-tag {
+    display: inline-block;
+    background: #1a2332;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .good-tag {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+
+  .warning-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #78350f;
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+
+  .critical-box {
+    background: #fff5f5;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #7f1d1d;
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #e74c3c;
+    margin: 24px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8eaed;
+  }
+
+  .summary-block {
+    background: #1a2332;
+    color: white;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .summary-block h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: white;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .summary-col h3 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #ff6b5b;
+    margin-bottom: 10px;
+  }
+  .summary-list { list-style: none; }
+  .summary-list li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .summary-list li::before {
+    content: '→';
+    color: #ff6b5b;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .platform-note {
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #3730a3;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 32px 20px; }
+    .hero h1 { font-size: 24px; }
+    .info-bar { padding: 14px 20px; }
+    .info-bar-inner { gap: 16px; }
+    .container { padding: 24px 16px 60px; }
+    .score-grid { grid-template-columns: 1fr; }
+    .summary-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">SEO Audit Report</div>
+    <h1>E&R Earthworks</h1>
+    <p>erearthworks.com.au &mdash; Full site review, June 2026</p>
+  </div>
+</div>
+
+<div class="info-bar">
+  <div class="info-bar-inner">
+    <div class="info-item">
+      <span class="info-label">Business</span>
+      <span class="info-value">E&R Earthworks</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Platform</span>
+      <span class="info-value">Duda (not Wix)</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Industry</span>
+      <span class="info-value">Earthmoving & Excavation</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Location</span>
+      <span class="info-value">Gold Coast, QLD</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Servicing</span>
+      <span class="info-value">Gold Coast, Brisbane, Northern NSW</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="platform-note">
+    <strong>Platform note:</strong> E&R Earthworks is built on <strong>Duda</strong>, not Wix. The Wix-specific dashboard steps (NLWeb, LLMs.txt, GEO Visibility testing) don't apply here. The SEO fundamentals, content recommendations, and Google account steps in this audit are platform-agnostic and all apply.
+  </div>
+
+  <!-- SCORES -->
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="score-label">Page Title Quality</div>
+      <div class="score-value score-medium">6/10</div>
+      <div class="score-note">Good on some pages, generic on others</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">Content Depth</div>
+      <div class="score-value score-bad">4/10</div>
+      <div class="score-note">Lots of images, thin readable text</div>
+    </div>
+    <div class="score-card">
+      <div class="score-label">Technical SEO</div>
+      <div class="score-value score-medium">5/10</div>
+      <div class="score-note">Slider captions, image alt text unfinished</div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="summary-block">
+    <h2>Executive Summary</h2>
+    <div class="summary-grid">
+      <div class="summary-col">
+        <h3>What's working</h3>
+        <ul class="summary-list">
+          <li>Strong page titles on homepage and services page with location keywords</li>
+          <li>20 meta keywords defined — good keyword coverage strategy</li>
+          <li>Location suburb pages in footer (Robina, Burleigh, Coomera etc) — smart local SEO play</li>
+          <li>Good service breadth clearly listed on services page</li>
+          <li>30+ years experience, family-owned messaging is strong trust signal</li>
+          <li>Google Maps link in footer — good for local signals</li>
+          <li>Clear phone number prominent in header and footer</li>
+        </ul>
+      </div>
+      <div class="summary-col">
+        <h3>What needs fixing</h3>
+        <ul class="summary-list">
+          <li>Slider captions all say "Slide title / Write your caption here" — embarrassing and wastes keyword real estate</li>
+          <li>Multiple images with no alt text (empty src tags)</li>
+          <li>Content is thin — heavy on images, light on readable text Google can index</li>
+          <li>No internal links between pages in body copy</li>
+          <li>Meta descriptions are generic and don't differentiate by page</li>
+          <li>Copyright footer says "2016" — looks outdated</li>
+          <li>No testimonials or reviews visible on the site itself</li>
+          <li>Plumbing & Civil page not reviewed — likely has same issues</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOMEPAGE -->
+  <div class="section">
+    <div class="section-header">
+      <div>
+        <h2>Homepage</h2>
+        <div class="page-url">erearthworks.com.au</div>
+      </div>
+      <span class="badge badge-high">High Priority</span>
+    </div>
+    <div class="section-body">
+
+      <div class="rec">
+        <div class="rec-type">Page Title</div>
+        <h3>Title is decent but "Best" is a red flag word</h3>
+        <p>Current title: "E&R Earthworks Gold Coast – Best Excavator Hire Gold Coast". The word "Best" is a superlative claim that Google treats with scepticism, and it's overused in low-quality SEO. It also duplicates "Gold Coast" twice. Consider a cleaner version:</p>
+        <div class="paste-box">
+          <strong>Suggested new title</strong>
+          <div class="paste-box-content">E&R Earthworks | Excavator & Earthmoving Hire Gold Coast | Since 1998</div>
+        </div>
+        <p style="font-size:13px; color:#666; margin-top:8px;">The "Since 1998" angle is a genuine differentiator and trust signal that competitors can't fake.</p>
+        <span class="action-tag">Duda Editor > Page Settings > SEO</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Critical Issue</div>
+        <h3>All slider captions say "Slide title / Write your caption here"</h3>
+        <p>This is a major problem. The image slider has 13 images and every single one shows the default placeholder text. This means:</p>
+        <p>1. Google is indexing the words "Slide title. Write your caption here." on your homepage repeatedly.</p>
+        <p>2. The alt text on those images IS properly set to keyword-rich terms (excavation Gold Coast, bobcat hire Gold Coast etc) which is good — but the visible captions are wasted keyword real estate and look unfinished to both Google and visitors.</p>
+        <div class="paste-box">
+          <strong>Fix: Replace all slider captions with descriptive text</strong>
+          <div class="paste-box-content">
+            Slide 1: "Excavation services across the Gold Coast — residential & commercial"<br>
+            Slide 2: "Bobcat and excavator hire with experienced operators"<br>
+            Slide 3: "Site preparation and bulk earthworks Gold Coast"<br>
+            Slide 4: "Bobcat hire for tight-access residential projects"<br>
+            Slide 5: "Site cuts and land clearing across the Gold Coast"<br>
+            Slide 6: "Civil earthworks for residential and commercial projects"<br>
+            Slide 7: "Drainage excavation and trenching services"<br>
+            Slide 8: "Earthmoving services — Gold Coast to Brisbane"<br>
+            Slide 9: "Residential excavation — over 30 years on the Gold Coast"<br>
+            Slide 10: "Commercial excavation — large-scale projects"<br>
+            Slide 11: "Tipper truck hire for material haulage"<br>
+            Slide 12: "Trenching services for utilities and drainage"<br>
+            Slide 13: "Gold Coast earthworks — trusted since 1998"
+          </div>
+        </div>
+        <span class="action-tag">Duda Editor — each slide caption field</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Images</div>
+        <h3>Several images have empty src tags — missing images or broken links</h3>
+        <p>Multiple images in the equipment section (1-24 Tonne Excavators, Bobcats, Combo Hire, Tip Trucks, Attachments) have empty src attributes, meaning the images either aren't loading or haven't been set. These also have no alt text. Fix both.</p>
+        <div class="paste-box">
+          <strong>Alt text to add for equipment icons</strong>
+          <div class="paste-box-content">
+            1-24 Tonne Excavators: "1 to 24 tonne excavators for hire, E&R Earthworks Gold Coast"<br>
+            Bobcats & Skid Steers: "Bobcat and skid steer hire, Gold Coast earthworks"<br>
+            Combo Hire: "Combo excavator and tipper truck hire, Gold Coast"<br>
+            Tip Trucks: "Tip truck hire for material haulage, Gold Coast"<br>
+            Attachments: "Excavator attachments including rock breakers and augers, Gold Coast"
+          </div>
+        </div>
+        <span class="action-tag">Duda Editor — image settings</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Copyright Footer</div>
+        <h3>Footer says "© 2026 - 2016" — this looks like a mistake</h3>
+        <p>The copyright line reads "© 2026 - 2016 All Rights Reserved" which doesn't make sense chronologically. It should read "© 2016 – 2026" or simply "© 2026". A small thing but it looks sloppy.</p>
+        <span class="action-tag">Duda Editor — footer</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Internal Linking</div>
+        <h3>No internal text links in the body copy</h3>
+        <p>The homepage has strong body copy ("Whether you're preparing a site, laying footings, clearing land...") but none of it links through to the relevant pages. Add these links naturally within existing text:</p>
+        <div class="paste-box">
+          <strong>Internal links to add</strong>
+          <div class="paste-box-content">
+            "earthmoving and excavation services" → link to /services<br>
+            "plumbing" or "civil" → link to /plumbing-and-civil-works<br>
+            "our equipment" or "modern fleet" → link to /our-equipment<br>
+            "contact" or "get a quote" → link to /contact-us
+          </div>
+        </div>
+        <span class="action-tag">Duda Editor — text links</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SERVICES PAGE -->
+  <div class="section">
+    <div class="section-header">
+      <div>
+        <h2>Services Page</h2>
+        <div class="page-url">erearthworks.com.au/services</div>
+      </div>
+      <span class="badge badge-high">High Priority</span>
+    </div>
+    <div class="section-body">
+
+      <div class="rec">
+        <div class="rec-type">Page Title</div>
+        <h3>Page title is good — minor improvement available</h3>
+        <p>Current: "Expert Excavation Services Gold Coast | E&R Earthworks". This is solid. One optional improvement is to add the service breadth:</p>
+        <div class="paste-box">
+          <strong>Optional improved title</strong>
+          <div class="paste-box-content">Excavation, Earthmoving & Plant Hire Gold Coast | E&R Earthworks</div>
+        </div>
+        <span class="good-tag">Currently acceptable — low priority</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Meta Description</div>
+        <h3>Meta description is generic and doesn't sell the page</h3>
+        <p>Current: "E&R Earthworks on the Gold Coast not only have their right equipment but also provides all the benefits of a team of excavation experts with decades of industry experience as well."</p>
+        <p>This is awkward ("not only have their right equipment"), passive, and doesn't include a call to action. Update to:</p>
+        <div class="paste-box">
+          <strong>New meta description</strong>
+          <div class="paste-box-content">Gold Coast excavation, earthmoving, and plant hire services. Site cuts, trenching, pool digs, bulk earthworks and more. Fully licensed operators. Call 07 5522 9825.</div>
+        </div>
+        <span class="action-tag">Duda Editor > Page Settings > SEO</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Critical Issue</div>
+        <h3>Slider captions are "Slide title / Write your caption here" again</h3>
+        <p>Same issue as the homepage. 10 slides, all with placeholder captions. Fix these with service-specific descriptions:</p>
+        <div class="paste-box">
+          <strong>Fix: Replace all slider captions</strong>
+          <div class="paste-box-content">
+            Slide 1: "Excavation and site preparation, Gold Coast residential and commercial"<br>
+            Slide 2: "Earthworks contractors — over 30 years on the Gold Coast"<br>
+            Slide 3: "Excavator hire with licensed, experienced operators"<br>
+            Slide 4: "Earthmoving services from Gold Coast to Brisbane"<br>
+            Slide 5: "Bobcat hire for residential and landscaping projects"<br>
+            Slide 6: "Bulk earthworks and site cuts, Gold Coast"<br>
+            Slide 7: "Site preparation for residential developments"<br>
+            Slide 8: "Drainage excavation and trenching, Gold Coast"<br>
+            Slide 9: "Earthworks contractors — family owned since 1998"<br>
+            Slide 10: "Post hole boring for fencing and retaining walls"
+          </div>
+        </div>
+        <span class="action-tag">Duda Editor — each slide caption field</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Content Quality</div>
+        <h3>Service list icons have no images and no alt text</h3>
+        <p>The 12 service icons (Site Cuts, Plumbing Excavation, Footings, Slab Preparation etc) all have empty image src attributes. The services are named correctly and the descriptions are good, but the images aren't loading. Fix the images and add alt text to each.</p>
+        <div class="paste-box">
+          <strong>Alt text template for service icons</strong>
+          <div class="paste-box-content">
+            "[Service name] — E&R Earthworks Gold Coast"<br><br>
+            Example: "Site cuts and land clearing — E&R Earthworks Gold Coast"<br>
+            Example: "Pool dig excavation services — E&R Earthworks Gold Coast"
+          </div>
+        </div>
+        <span class="action-tag">Duda Editor — service section images</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Content Opportunity</div>
+        <h3>Each service should have its own dedicated page</h3>
+        <p>Currently all services are on one page with brief descriptions. For maximum SEO impact, high-value services should have their own dedicated pages. This is a bigger project but the highest-return content investment available. Priority pages to create:</p>
+        <div class="paste-box">
+          <strong>Priority dedicated service pages (create in order)</strong>
+          <div class="paste-box-content">
+            1. Pool Digs Gold Coast — high search volume, specific intent<br>
+            2. Site Cuts & Land Clearing Gold Coast<br>
+            3. Bobcat Hire Gold Coast<br>
+            4. Excavator Hire Gold Coast (separate from general services)<br>
+            5. Slab Preparation Gold Coast<br>
+            6. Trenching & Plumbing Excavation Gold Coast
+          </div>
+        </div>
+        <span class="action-tag">Medium-term content project</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LOCATION PAGES -->
+  <div class="section">
+    <div class="section-header">
+      <div>
+        <h2>Suburb Location Pages</h2>
+        <div class="page-url">erearthworks.com.au/earthmoving-hire-[suburb]</div>
+      </div>
+      <span class="badge badge-critical">Critical</span>
+    </div>
+    <div class="section-body">
+
+      <div class="rec">
+        <div class="rec-type">Smart Strategy — Poorly Executed</div>
+        <h3>16 suburb pages in the footer — this is the right idea but likely thin content</h3>
+        <p>Having dedicated suburb pages (Robina, Burleigh, Coomera, Helensvale etc) is a strong local SEO strategy. However, these pages are almost certainly thin — likely just the homepage content with the suburb name swapped in. If Google detects duplicate or near-duplicate content across 16 pages, it may penalise or ignore them entirely.</p>
+        <div class="critical-box">
+          ⚠️ This is a double-edged sword. Done well, suburb pages drive serious local traffic. Done poorly (thin, duplicate content), they can actively hurt rankings. These pages need a proper audit before proceeding.
+        </div>
+        <p>Each suburb page needs at minimum: a unique opening paragraph specific to that suburb, at least 300 words of unique content, and a local reference (e.g. "We work regularly across Coomera, including Hope Island Road and the newer residential estates near Dreamworld").</p>
+        <span class="action-tag">Priority audit — check each suburb page individually</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TECHNICAL -->
+  <div class="section">
+    <div class="section-header">
+      <div>
+        <h2>Technical & Structural Issues</h2>
+      </div>
+      <span class="badge badge-high">High Priority</span>
+    </div>
+    <div class="section-body">
+
+      <div class="rec">
+        <div class="rec-type">Platform</div>
+        <h3>Built on Duda — not Wix</h3>
+        <p>This site is built on Duda, not Wix. The SEO panel, meta settings, and image management all work differently. The Duda platform has its own SEO tools under Site > SEO in the dashboard. The recommendations in this report all apply but the "where to find it" steps differ from the Wix checklist.</p>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Schema / Structured Data</div>
+        <h3>No visible structured data for a local business</h3>
+        <p>There's no LocalBusiness schema markup visible on the site. This structured data tells Google the business name, address, phone, hours, and service area in a standardised format that directly feeds into Google's knowledge graph and local search results. Duda supports adding schema through custom code injection.</p>
+        <div class="paste-box">
+          <strong>Key schema fields to implement</strong>
+          <div class="paste-box-content">
+            Business name: E&R Earthworks<br>
+            Address: [full street address]<br>
+            Phone: 07 5522 9825<br>
+            Service area: Gold Coast, Brisbane, Northern NSW<br>
+            Business type: ExcavationContractor<br>
+            Founded: 1998
+          </div>
+        </div>
+        <span class="action-tag">Duda > Site Settings > Custom Code or Schema plugin</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Google Business Profile</div>
+        <h3>Verify GBP is set up, verified, and complete</h3>
+        <p>The Google Maps link in the footer shows a GBP listing exists for E&R Earthworks. Confirm it's verified, has complete information, recent photos, and is actively accumulating reviews. The "Our Customers Reviews" section on the site doesn't show any actual reviews — which likely means they're pulling from a widget that may not be configured.</p>
+        <div class="warning-box">
+          The reviews section heading appears twice on both the homepage and services page but shows no actual review content. Either the Google Reviews widget isn't connected or it's not rendering. Fix this — social proof is critical for a trade business.
+        </div>
+        <span class="action-tag">business.google.com + Duda widget settings</span>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Content Structure</div>
+        <h3>Pages are image-heavy and text-light — Google has little to index</h3>
+        <p>Both the homepage and services page are primarily image sliders and icon grids. The actual readable text Google can index is minimal. A page with 500 words of well-structured content outranks a page with 50 words and 30 images every time. The content that is there (the "Why Choose E&R" section, the machinery descriptions) is good — there just needs to be more of it.</p>
+        <p>Specifically, the homepage needs a more substantial "About Us" section explaining the history, experience, and what makes E&R different in 200-300 words. This also helps with GEO visibility if they ever move to that.</p>
+        <span class="action-tag">Content addition — homepage and services page</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QUICK WINS SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <div>
+        <h2>Priority Order — What to Do First</h2>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="rec">
+        <div class="rec-type">Block 1 — Do This Week (2-3 hours)</div>
+        <h3>Quick wins with immediate impact</h3>
+        <div class="paste-box">
+          <strong>In order of priority</strong>
+          <div class="paste-box-content">
+            1. Fix all slider captions on homepage and services page — currently showing placeholder text<br>
+            2. Fix broken/empty image src tags in the equipment section<br>
+            3. Add alt text to all images that are missing it<br>
+            4. Fix the copyright footer ("2026 - 2016" reads backwards)<br>
+            5. Update the meta description on the services page<br>
+            6. Connect or fix the Google Reviews widget — it's showing on both pages but displaying nothing<br>
+            7. Add internal text links in homepage body copy
+          </div>
+        </div>
+      </div>
+
+      <div class="rec">
+        <div class="rec-type">Block 2 — This Month (4-6 hours)</div>
+        <h3>Higher effort, higher return</h3>
+        <div class="paste-box">
+          <strong>In order of priority</strong>
+          <div class="paste-box-content">
+            1. Audit each suburb page — check for thin/duplicate content and add unique content to each<br>
+            2. Add LocalBusiness schema markup via Duda's custom code injection<br>
+            3. Add more body text to homepage — expand the About section to 200-300 words<br>
+            4. Verify Google Business Profile is complete, verified, and photos are current<br>
+            5. Review and confirm Google Search Console is connected and check for unindexed pages
+          </div>
+        </div>
+      </div>
+
+      <div class="rec" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
+        <div class="rec-type">Block 3 — Medium Term (Ongoing)</div>
+        <h3>Content strategy for long-term growth</h3>
+        <div class="paste-box">
+          <strong>In order of priority</strong>
+          <div class="paste-box-content">
+            1. Create dedicated service pages for pool digs, site cuts, bobcat hire, and slab preparation<br>
+            2. Add a genuine testimonials section — ask satisfied clients for Google reviews and display them<br>
+            3. Consider a simple blog with Q&A posts targeting queries like "How much does excavation cost on the Gold Coast?" or "Do I need council approval for earthworks in Queensland?"<br>
+            4. Update the homepage title to remove "Best" and add "Since 1998"
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

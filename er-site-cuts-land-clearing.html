@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Cuts & Land Clearing Gold Coast | E&R Earthworks | Since 1998</title>
+<meta name="description" content="Professional site cuts and land clearing on the Gold Coast. Residential, commercial and civil block preparation. Licensed operators, modern fleet. Call 07 5522 9825.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0d0d0d;
+    --dark: #1a1a1a;
+    --dark-mid: #1e1e1e;
+    --dark-card: #262626;
+    --red: #e63329;
+    --red-dark: #b8231a;
+    --amber: #f59e0b;
+    --white: #ffffff;
+    --off-white: #f0ede8;
+    --grey: #888;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--black);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--red);
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .nav-logo span { color: var(--red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-cta {
+    background: var(--red);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--red-dark); }
+
+  /* HERO — different layout from pool page, diagonal split */
+  .hero {
+    background: var(--black);
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .hero-left {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    top: 0; right: -60px; bottom: 0;
+    width: 120px;
+    background: var(--black);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    z-index: 2;
+  }
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.45);
+  }
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(13,13,13,0.8) 0%, transparent 50%);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    border-left: 3px solid var(--red);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(48px, 6vw, 78px);
+    font-weight: 900;
+    line-height: 0.93;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  .hero h1 .accent { color: var(--red); }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.68);
+    max-width: 460px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--red);
+    color: white;
+    padding: 14px 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 14px 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: white; }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: #111;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 40px;
+  }
+  .trust-bar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.65);
+  }
+  .trust-dot {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 40px; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .body-text {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+  }
+
+  /* INTRO */
+  .intro-section { background: var(--black); }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .intro-text p {
+    color: rgba(255,255,255,0.68);
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .check-list { list-style: none; margin-top: 24px; }
+  .check-list li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    align-items: flex-start;
+  }
+  .check-list li::before {
+    content: '✓';
+    color: var(--red);
+    font-weight: 800;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: -1px;
+  }
+  .intro-images {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    height: 520px;
+  }
+  .intro-img-large {
+    overflow: hidden;
+    border-radius: 3px 3px 0 0;
+  }
+  .intro-img-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.75);
+    transition: transform 0.4s;
+  }
+  .intro-img-large:hover img { transform: scale(1.03); }
+  .intro-imgs-small {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .intro-imgs-small div {
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .intro-imgs-small div:last-child { border-radius: 0 0 3px 0; }
+  .intro-imgs-small div:first-child { border-radius: 0 0 0 3px; }
+  .intro-imgs-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.65);
+    transition: transform 0.4s;
+  }
+  .intro-imgs-small div:hover img { transform: scale(1.05); filter: brightness(0.85); }
+
+  /* SERVICES */
+  .services-section { background: var(--dark-mid); }
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+    align-items: end;
+  }
+  .service-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    background: var(--border);
+  }
+  .service-tile {
+    background: var(--dark-card);
+    padding: 30px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .service-tile:hover::before { transform: scaleX(1); }
+  .service-tile:hover { background: #2e2e2e; }
+  .tile-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .service-tile h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .service-tile p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* EQUIPMENT STRIP */
+  .equipment-section { background: var(--black); }
+  .equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+    background: var(--border);
+  }
+  .equip-card {
+    background: var(--dark-card);
+    padding: 28px 22px;
+  }
+  .equip-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .equip-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .equip-range {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+  .equip-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* PROJECTS GRID */
+  .projects-section { background: var(--dark-mid); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 240px 240px;
+    gap: 4px;
+    margin-top: 48px;
+  }
+  .project-item {
+    overflow: hidden;
+    position: relative;
+    background: var(--dark-card);
+  }
+  .project-item:first-child { grid-row: 1 / 3; }
+  .project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.55);
+    transition: transform 0.5s ease, filter 0.3s;
+  }
+  .project-item:hover img { transform: scale(1.04); filter: brightness(0.75); }
+  .project-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 16px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* AREAS */
+  .areas-section { background: var(--black); }
+  .areas-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    margin-top: 48px;
+  }
+  .area-tag {
+    background: var(--dark-card);
+    padding: 16px 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    transition: all 0.2s;
+    text-decoration: none;
+    display: block;
+    letter-spacing: 0.3px;
+  }
+  .area-tag:hover { background: var(--red); color: white; }
+  .area-tag span {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    text-transform: none;
+    font-family: 'Barlow', sans-serif;
+    letter-spacing: 0;
+    margin-top: 2px;
+  }
+  .area-tag:hover span { color: rgba(255,255,255,0.7); }
+
+  /* GUARANTEE */
+  .guarantee-section {
+    background: var(--dark-mid);
+    border-top: 1px solid var(--border);
+  }
+  .guarantee-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    margin-top: 48px;
+  }
+  .guarantee-card {
+    background: var(--dark-card);
+    padding: 32px 28px;
+    text-align: center;
+  }
+  .g-icon {
+    width: 56px; height: 56px;
+    background: rgba(230,51,41,0.12);
+    border: 2px solid rgba(230,51,41,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 24px;
+  }
+  .guarantee-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .guarantee-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* CTA */
+  .cta-section {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px;
+  }
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/6-85ebab4d-1920w.png');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.18);
+  }
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .cta-content h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(42px, 6vw, 70px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  .cta-content h2 em { font-style: normal; color: var(--red); }
+  .cta-content p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+  .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-red-lg {
+    background: var(--red);
+    color: white;
+    padding: 16px 36px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .btn-red-lg:hover { background: var(--red-dark); transform: translateY(-2px); }
+  .btn-ghost-lg {
+    border: 2px solid rgba(255,255,255,0.35);
+    color: white;
+    padding: 16px 36px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .btn-ghost-lg:hover { border-color: white; background: rgba(255,255,255,0.07); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 48px 40px;
+    border-top: 2px solid var(--red);
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .footer-logo span { color: var(--red); }
+  .footer-tag { font-size: 13px; color: var(--grey); margin-bottom: 20px; }
+  .footer-contact a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 6px;
+    transition: color 0.2s;
+  }
+  .footer-contact a:hover { color: var(--red); }
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--red); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 28px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--grey);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 300px; }
+    .hero-left::after { display: none; }
+    .hero-left { padding: 50px 24px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    .intro-grid { grid-template-columns: 1fr; }
+    .intro-images { height: 320px; grid-template-rows: 2fr 1fr; }
+    .services-header { grid-template-columns: 1fr; gap: 24px; }
+    .service-tiles { grid-template-columns: 1fr; }
+    .equipment-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
+    .projects-grid .project-item:first-child { grid-row: auto; }
+    .areas-header { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    .guarantee-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; gap: 6px; }
+    .trust-bar { padding: 14px 20px; }
+    .cta-section { padding: 60px 20px; }
+    .pdf-bar { padding: 10px 20px; }
+  }
+
+  .pdf-bar {
+    background: #111;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+  }
+  .pdf-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Barlow', sans-serif;
+  }
+  .pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    padding: 8px 18px;
+    border-radius: 3px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .pdf-btn:hover { border-color: var(--red); color: white; background: rgba(230,51,41,0.12); }
+
+  @media print {
+    .pdf-bar, nav { display: none !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { background: white; }
+    .hero { background: #0d0d0d !important; }
+    .trust-bar { background: #111 !important; }
+    .cta-bg { filter: brightness(0.15) !important; }
+    footer { background: #0d0d0d !important; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.erearthworks.com.au" class="nav-logo">E<span>&</span>R EARTHWORKS</a>
+  <ul class="nav-links">
+    <li><a href="https://www.erearthworks.com.au/services">Services</a></li>
+    <li><a href="https://www.erearthworks.com.au/plumbing-and-civil-works">Plumbing & Civil</a></li>
+    <li><a href="https://www.erearthworks.com.au/our-equipment">Equipment</a></li>
+    <li><a href="https://www.erearthworks.com.au/contact-us">Contact</a></li>
+  </ul>
+  <a href="tel:0755229825" class="nav-cta">📞 07 5522 9825</a>
+</nav>
+
+<!-- PDF BAR -->
+<div class="pdf-bar">
+  <span class="pdf-label">Share or save this page</span>
+  <button class="pdf-btn" onclick="window.print()">
+    <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm0 2h12v6H4V5zm2 8h8v2H6v-2zm0-4h2v2H6V9zm4 0h2v2h-2V9z"/></svg>
+    Download PDF
+  </button>
+</div>
+
+<!-- HERO — split layout -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Gold Coast Earthworks Specialists</div>
+    <h1>Site Cuts &<br><span class="accent">Land</span><br>Clearing</h1>
+    <p class="hero-sub">Before any build begins, the ground has to be right. We prepare residential and commercial blocks across the Gold Coast — fast, accurate, and done properly the first time.</p>
+    <div class="hero-actions">
+      <a href="tel:0755229825" class="btn-primary">📞 Call for a Quote</a>
+      <a href="https://www.erearthworks.com.au/contact-us" class="btn-outline">Enquire Online</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/475464142_2621531348036138_8848528262505298572_n-665w.jpg" alt="Site cuts and land clearing Gold Coast — E&R Earthworks">
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><div class="trust-dot"></div>30+ Years Experience</div>
+    <div class="trust-item"><div class="trust-dot"></div>Licensed & Insured Operators</div>
+    <div class="trust-item"><div class="trust-dot"></div>Residential & Commercial</div>
+    <div class="trust-item"><div class="trust-dot"></div>Gold Coast, Brisbane & Northern NSW</div>
+    <div class="trust-item"><div class="trust-dot"></div>After-Hours Available</div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="inner">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <div class="eyebrow">Block Preparation Specialists</div>
+        <h2 class="section-title">The Job That Sets Up Everything Else</h2>
+        <p class="body-text">A site cut done right is the foundation for everything that follows — your slab, your footings, your driveway, your drainage. Get it wrong and you're fixing problems for the life of the build.</p>
+        <p class="body-text" style="margin-top:14px;">E&R Earthworks has been preparing Gold Coast blocks for residential and commercial construction since 1998. We know the terrain, we understand the soil conditions across the region, and we work to the tolerances your builder needs — not close enough, but right.</p>
+        <p class="body-text" style="margin-top:14px;">Whether it's a single house block in Coomera, a duplex site in Robina, or a commercial development in Ormeau, we bring the right equipment and the right operators for the job.</p>
+        <ul class="check-list" style="margin-top:28px;">
+          <li>Residential site cuts for new builds, extensions and additions</li>
+          <li>Commercial block preparation for multi-lot and industrial sites</li>
+          <li>Land clearing including tree and stump removal</li>
+          <li>Cut and fill — balancing cut material before removing excess</li>
+          <li>Level pad preparation for sheds, garages and pools</li>
+          <li>Drainage shaping and fall preparation</li>
+          <li>Council-compliant retaining wall excavation</li>
+        </ul>
+      </div>
+      <div class="intro-images">
+        <div class="intro-img-large">
+          <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/75586134_1207863052736315_3514939679575113728_n-665w.jpg" alt="Site cuts Gold Coast residential block preparation">
+        </div>
+        <div class="intro-imgs-small">
+          <div>
+            <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/74930270_1217378885118065_3184773556277870592_n-665w.jpg" alt="Land clearing Gold Coast">
+          </div>
+          <div>
+            <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/67247821_1124177331104888_6504987892622819328_n-665w.jpg" alt="Earthmoving and block preparation Gold Coast">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="inner">
+    <div class="services-header">
+      <div>
+        <div class="eyebrow">What We Do</div>
+        <h2 class="section-title">Site Cut & Clearing Services</h2>
+      </div>
+      <div>
+        <p class="body-text">Every block is different. We scope the job properly before we quote so you get an accurate price — not a low number that blows out when we hit something unexpected.</p>
+      </div>
+    </div>
+    <div class="service-tiles">
+      <div class="service-tile">
+        <div class="tile-num">01 —</div>
+        <h3>Residential Site Cuts</h3>
+        <p>New home construction, granny flats, extensions, and additions. We cut to the engineer's specified levels and hand over a site your builder can work straight onto. Includes spoil removal and tip truck hire.</p>
+      </div>
+      <div class="service-tile">
+        <div class="tile-num">02 —</div>
+        <h3>Commercial Block Prep</h3>
+        <p>Multi-lot residential, industrial sites, and commercial developments. Larger equipment, faster turnaround. We've worked alongside civil engineers and project managers across South East Queensland for over 30 years.</p>
+      </div>
+      <div class="service-tile">
+        <div class="tile-num">03 —</div>
+        <h3>Land Clearing</h3>
+        <p>Scrub, trees, stumps, and vegetation removal before building begins. We clear the block and remove all material from site. Council vegetation clearing permits may be required — check before you book.</p>
+      </div>
+      <div class="service-tile">
+        <div class="tile-num">04 —</div>
+        <h3>Cut & Fill Balancing</h3>
+        <p>On sloping blocks, a cut and fill approach reuses excavated material to level the site — reducing the volume you need to truck away. We assess the material suitability on site and work to your engineer's specs.</p>
+      </div>
+      <div class="service-tile">
+        <div class="tile-num">05 —</div>
+        <h3>Drainage Preparation</h3>
+        <p>Shaping the site to correct falls for stormwater drainage before slab or landscape works begin. Done now, it prevents drainage problems for the life of the build. Often done alongside the site cut.</p>
+      </div>
+      <div class="service-tile">
+        <div class="tile-num">06 —</div>
+        <h3>Level Pads & Hardstand</h3>
+        <p>Preparing flat, compacted pads for sheds, garages, pool surrounds, and hardstand areas. Includes any necessary fill supply and compaction to the required depth and bearing capacity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPMENT -->
+<section class="equipment-section">
+  <div class="inner">
+    <div class="eyebrow">Our Fleet</div>
+    <h2 class="section-title">Equipment for Every Site Cut</h2>
+    <p class="body-text" style="max-width:560px;">We match the machine to the job. A tight residential block needs a different approach to a large commercial site — and we've got the full range to handle both.</p>
+    <div class="equipment-grid">
+      <div class="equip-card">
+        <span class="equip-icon">🦾</span>
+        <h3>Excavators</h3>
+        <div class="equip-range">1 to 24 Tonne</div>
+        <p>From mini excavators for tight-access residential blocks through to 24-tonne machines for large commercial sites. All with licensed, experienced operators.</p>
+      </div>
+      <div class="equip-card">
+        <span class="equip-icon">🟧</span>
+        <h3>Bobcats & Posi Tracks</h3>
+        <div class="equip-range">Micro to Full-Size</div>
+        <p>Tracked and wheeled skid steers for spreading material, cleaning up finished surfaces, and working in areas where larger excavators can't operate efficiently.</p>
+      </div>
+      <div class="equip-card">
+        <span class="equip-icon">🚛</span>
+        <h3>Tip Trucks</h3>
+        <div class="equip-range">5 to 10 Cubic Metres</div>
+        <p>Our own tipper trucks come with the job. Excavated material loaded and removed from site — no leaving piles of dirt for you to sort out after we're gone.</p>
+      </div>
+      <div class="equip-card">
+        <span class="equip-icon">🔩</span>
+        <h3>Attachments</h3>
+        <div class="equip-range">Rock Breakers, Augers & More</div>
+        <p>Rock breakers for hard substrate. Augers for stump removal and pier holes. Compaction wheels for prepared surfaces. The right tool changes the outcome on every job.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT GALLERY -->
+<section class="projects-section">
+  <div class="inner">
+    <div class="eyebrow">Recent Work</div>
+    <h2 class="section-title">Site Cuts Across the Gold Coast</h2>
+    <div class="projects-grid">
+      <div class="project-item">
+        <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/107732064_1406796516176300_2989059298369999869_n-665w.jpg" alt="Large site cut Gold Coast residential">
+        <div class="project-label">Residential Site Cut — Coomera</div>
+      </div>
+      <div class="project-item">
+        <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/76686308_1217386175117336_6844845412054990848_n-1920w.jpg" alt="Land clearing Gold Coast">
+        <div class="project-label">Land Clearing — Northern Gold Coast</div>
+      </div>
+      <div class="project-item">
+        <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/109932385_1412227195633232_3211472158585142349_n-665w.jpg" alt="Excavation Gold Coast commercial">
+        <div class="project-label">Commercial Block Prep — Ormeau</div>
+      </div>
+      <div class="project-item">
+        <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/81025284_1239917369530883_8415942919923433472_n-1920w.jpg" alt="Earthworks site cut Gold Coast">
+        <div class="project-label">Cut & Fill — Sloping Block, Robina</div>
+      </div>
+      <div class="project-item">
+        <img src="https://lirp.cdn-website.com/4900bb93/dms3rep/multi/opt/149042875_1579601285562488_2776396433009462341_n-665w.jpg" alt="Site preparation Gold Coast">
+        <div class="project-label">Duplex Site — Helensvale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="areas-section">
+  <div class="inner">
+    <div class="areas-header">
+      <div>
+        <div class="eyebrow">Where We Work</div>
+        <h2 class="section-title">Servicing the Entire Gold Coast Region</h2>
+        <p class="body-text" style="margin-top:14px;">Based on the Gold Coast, we cover everything from Brisbane south to the Tweed and across to the hinterland. If you're in range, we'll get there.</p>
+      </div>
+      <div>
+        <p class="body-text">We work on residential blocks, rural properties, and commercial sites. If you're outside the areas listed, give us a call — we service a broader region than most and we'll let you know if we can get there.</p>
+        <div style="margin-top:24px;">
+          <a href="tel:0755229825" class="btn-primary" style="display:inline-block;">📞 07 5522 9825</a>
+        </div>
+      </div>
+    </div>
+    <div class="areas-grid">
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-coomera" class="area-tag">Coomera<span>Hope Island, Pimpama</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-ormeau" class="area-tag">Ormeau<span>Yatala, Stapylton</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-helensvale" class="area-tag">Helensvale<span>Oxenford, Arundel</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-southport" class="area-tag">Southport<span>Labrador, Parkwood</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-robina" class="area-tag">Robina<span>Varsity Lakes, Mudgeeraba</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-burleigh" class="area-tag">Burleigh<span>Burleigh Waters, Elanora</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-tallebudgera" class="area-tag">Tallebudgera<span>Currumbin Valley</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-canungra" class="area-tag">Canungra<span>Hinterland & Rural</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-tweed-heads" class="area-tag">Tweed Heads<span>Kingscliff, Murwillumbah</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-brisbane" class="area-tag">Brisbane<span>South & Logan</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-logan" class="area-tag">Logan<span>Beenleigh, Loganholme</span></a>
+      <a href="https://www.erearthworks.com.au/earthmoving-hire-northern-rivers" class="area-tag">Northern Rivers<span>Lismore, Ballina, Byron</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="guarantee-section">
+  <div class="inner">
+    <div class="eyebrow">Our Commitment</div>
+    <h2 class="section-title">How We Work</h2>
+    <div class="guarantee-grid">
+      <div class="guarantee-card">
+        <div class="g-icon">📐</div>
+        <h3>Accurate to Spec</h3>
+        <p>We work from your engineer's or builder's drawings. Site cuts are done to specified levels — not approximately right, actually right. Your builder shouldn't be regrading on arrival.</p>
+      </div>
+      <div class="guarantee-card">
+        <div class="g-icon">🗓️</div>
+        <h3>On Time, Every Time</h3>
+        <p>Construction timelines don't have slack. We book the job and we show up. If something changes on our end, you'll hear from us well in advance — not on the morning we're supposed to arrive.</p>
+      </div>
+      <div class="guarantee-card">
+        <div class="g-icon">🧹</div>
+        <h3>Clean Site Handover</h3>
+        <p>When we're done, the site is ready for the next trade. Spoil removed, access cleaned up, surface ready. We don't leave problems behind for your builder to deal with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <h2>Need a Site Cut on the<em> Gold Coast?</em></h2>
+    <p>Call us for a straight-talking quote. We'll ask the right questions, give you a clear price, and lock in a date that works for your build schedule.</p>
+    <div class="cta-actions">
+      <a href="tel:0755229825" class="btn-red-lg">📞 Call 07 5522 9825</a>
+      <a href="https://www.erearthworks.com.au/contact-us" class="btn-ghost-lg">Send an Enquiry</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">E<span>&</span>R EARTHWORKS</div>
+      <div class="footer-tag">Gold Coast's Trusted Excavation & Earthmoving Experts Since 1998</div>
+      <div class="footer-contact">
+        <a href="tel:0755229825">📞 07 5522 9825</a>
+        <a href="mailto:info@eandr.com.au">✉ info@eandr.com.au</a>
+        <a>📍 Servicing Gold Coast, Brisbane & Northern NSW</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Site Cuts & Land Clearing</a></li>
+        <li><a href="#">Pool Digs</a></li>
+        <li><a href="https://www.erearthworks.com.au/services">Slab Preparation</a></li>
+        <li><a href="https://www.erearthworks.com.au/services">Bobcat Hire</a></li>
+        <li><a href="https://www.erearthworks.com.au/services">Bulk Earthworks</a></li>
+        <li><a href="https://www.erearthworks.com.au/plumbing-and-civil-works">Plumbing & Civil</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Service Areas</div>
+      <ul class="footer-links">
+        <li><a href="https://www.erearthworks.com.au/earthmoving-hire-coomera">Coomera</a></li>
+        <li><a href="https://www.erearthworks.com.au/earthmoving-hire-robina">Robina</a></li>
+        <li><a href="https://www.erearthworks.com.au/earthmoving-hire-burleigh">Burleigh</a></li>
+        <li><a href="https://www.erearthworks.com.au/earthmoving-hire-southport">Southport</a></li>
+        <li><a href="https://www.erearthworks.com.au/earthmoving-hire-brisbane">Brisbane</a></li>
+        <li><a href="https://www.erearthworks.com.au/earthmoving-hire-tweed-heads">Tweed Heads</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2016–2026 E&R Earthworks. All Rights Reserved.</span>
+    <span>Licensed Excavation Contractors — Gold Coast</span>
+  </div>
+</footer>
+
+</body>
+</html>
